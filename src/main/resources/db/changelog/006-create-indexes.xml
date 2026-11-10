@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="006-create-indexes" author="alif">
+
+        <createIndex
+                tableName="claims"
+                indexName="idx_claims_claim_number">
+            <column name="claim_number"/>
+        </createIndex>
+
+        <createIndex
+                tableName="claims"
+                indexName="idx_claims_claimant_id">
+            <column name="claimant_id"/>
+        </createIndex>
+
+        <createIndex
+                tableName="claimants"
+                indexName="idx_claimants_member_number">
+            <column name="claimant_member_number"/>
+        </createIndex>
+
+        <createIndex
+                tableName="assessments"
+                indexName="idx_assessments_claim_id">
+            <column name="claim_id"/>
+        </createIndex>
+
+        <createIndex
+                tableName="assessments"
+                indexName="idx_assessments_staff_id">
+            <column name="staff_id"/>
+        </createIndex>
+
+        <createIndex
+                tableName="assessments"
+                indexName="idx_assessments_result">
+            <column name="result"/>
+        </createIndex>
+
+        <createIndex
+                tableName="assessments"
+                indexName="idx_assessments_created_at">
+            <column name="created_at"/>
+        </createIndex>
+
+        <createIndex
+                tableName="staff_claim_queue"
+                indexName="idx_staff_claim_queue_status">
+            <column name="status"/>
+        </createIndex>
+
+        <createIndex
+                tableName="staff_claim_queue"
+                indexName="idx_staff_claim_queue_staff_id">
+            <column name="staff_id"/>
+        </createIndex>
+
+        <createIndex
+                tableName="staff_claim_queue"
+                indexName="idx_staff_claim_queue_queued_at">
+            <column name="queued_at"/>
+        </createIndex>
+
+    </changeSet>
+</databaseChangeLog>

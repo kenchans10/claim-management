@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="004-create-assessments-table" author="alif">
+
+        <createTable tableName="assessments">
+
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"
+                             primaryKeyName="pk_assessments"
+                             nullable="false"/>
+            </column>
+
+            <column name="claim_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="staff_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="assessment_type" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="details" type="VARCHAR(2000)"/>
+
+            <column name="estimated_amount" type="DOUBLE PRECISION">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="settled_amount" type="DOUBLE PRECISION"/>
+
+            <column name="result" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="assessments"
+                baseColumnNames="claim_id"
+                constraintName="fk_assessments_claims"
+                referencedTableName="claims"
+                referencedColumnNames="id"
+                onDelete="CASCADE"/>
+
+        <!-- Foreign key: assessments -> staff -->
+        <addForeignKeyConstraint
+                baseTableName="assessments"
+                baseColumnNames="staff_id"
+                constraintName="fk_assessments_staff"
+                referencedTableName="staff"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"/>
+
+    </changeSet>
+</databaseChangeLog>

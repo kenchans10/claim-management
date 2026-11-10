@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="002-create-claims-table" author="alif">
+        <createTable tableName="claims">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"
+                             primaryKeyName="pk_claims"
+                             nullable="false"/>
+            </column>
+
+            <column name="claim_number" type="VARCHAR(100)">
+                <constraints nullable="false"
+                             unique="true"
+                             uniqueConstraintName="uk_claims_claim_number"/>
+            </column>
+
+            <column name="claimant_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="claim_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="claims"
+                baseColumnNames="claimant_id"
+                constraintName="fk_claims_claimants"
+                referencedTableName="claimants"
+                referencedColumnNames="id"
+                onDelete="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>
