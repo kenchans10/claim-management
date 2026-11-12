@@ -12,4 +12,8 @@
     <include file="db/changelog/006-create-outbox-events-table.xml"/>
     <include file="/db/changelog/007-create-indexes.xml"/>
     <include file="/db/changelog/008-alter-staff-number.xml"/>
+
+    <include file="db/changelog/data/001-seed-claimants-staff.xml"/>
+    <include file="db/changelog/data/002-seed-claims-assessments.xml"/>
+    <include file="db/changelog/data/003-seed-claim-queue.xml"/>
 </databaseChangeLog>
