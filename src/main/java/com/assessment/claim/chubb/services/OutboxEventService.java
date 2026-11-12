@@ -2,8 +2,8 @@ package com.assessment.claim.chubb.services;
 
 import com.assessment.claim.chubb.entities.OutboxEvent;
 import com.assessment.claim.chubb.repository.OutboxEventRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class OutboxEventService {
         outboxEvent.setDestination(destination);
         try {
             outboxEvent.setPayload(objectMapper.writeValueAsString(event));
-        } catch (JsonProcessingException exception) {
+        } catch (JacksonException exception) {
             throw new IllegalStateException("Could not serialize outbox event", exception);
         }
         outboxEventRepository.save(outboxEvent);

@@ -11,4 +11,5 @@
     <include file="db/changelog/005-create-staff-claim-queue-table.xml"/>
     <include file="db/changelog/006-create-outbox-events-table.xml"/>
     <include file="/db/changelog/007-create-indexes.xml"/>
+    <include file="/db/changelog/008-alter-staff-number.xml"/>
 </databaseChangeLog>
