@@ -4,3 +4,17 @@ happening. Claims staff manage incoming work from shared inboxes and spreadsheet
 consolidated view of their workload. Managers have no real-time picture of outstanding claims
 or liability exposure.
 
+
+Postgres Installation
+
+docker pull postgres:18
+
+docker run -d `
+  --name my-postgres `
+  -e POSTGRES_DB=claim_db `
+  -e POSTGRES_USER=devbe `
+  -e POSTGRES_PASSWORD=devbe `
+  -p 5432:5432 `
+  -v postgres_data:/var/lib/postgresql/data `
+  --restart unless-stopped `
+  postgres:18
