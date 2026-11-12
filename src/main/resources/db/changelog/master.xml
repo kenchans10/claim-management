@@ -7,7 +7,8 @@
     <include file="db/changelog/001-create-claimants-table.xml"/>
     <include file="db/changelog/002-create-claims-table.xml"/>
     <include file="db/changelog/003-create-staff-table.xml"/>
-    <include file="/db/changelog/006-create-indexes.xml"/>
-    <include file="db/changelog/001-create-claimants-table.xml"/>
-    <include file="db/changelog/001-create-claimants-table.xml"/>
+    <include file="db/changelog/004-create-assessment-table.xml"/>
+    <include file="db/changelog/005-create-staff-claim-queue-table.xml"/>
+    <include file="db/changelog/006-create-outbox-events-table.xml"/>
+    <include file="/db/changelog/007-create-indexes.xml"/>
 </databaseChangeLog>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="006-create-outbox-events" author="alif">
+
+        <createTable tableName="outbox_events">
+
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"
+                             nullable="false"/>
+            </column>
+
+            <column name="event_type" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="destination" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="payload" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="attempts" type="INTEGER" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="published_at" type="TIMESTAMP"/>
+
+            <column name="last_error" type="VARCHAR(2000)"/>
+
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

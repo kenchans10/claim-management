@@ -66,5 +66,11 @@
             <column name="queued_at"/>
         </createIndex>
 
+        <createIndex tableName="outbox_events"
+                     indexName="idx_outbox_events_status_created_at">
+            <column name="status"/>
+            <column name="created_at"/>
+        </createIndex>
+
     </changeSet>
 </databaseChangeLog>
