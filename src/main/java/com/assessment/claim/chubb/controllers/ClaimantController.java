@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -32,5 +33,11 @@ public class ClaimantController {
     /** Retrieves a claimant by internal identifier. */
     public ResponseEntity<ApiResponse<Claimant>> getClaimant(@PathVariable UUID id) {
         return ResponseEntity.ok(ApiResponse.success(claimantService.getClaimant(id)));
+    }
+
+    @GetMapping("/claimants")
+    /** Retrieves a claimant by internal identifier. */
+    public ResponseEntity<ApiResponse<List<Claimant>>> getListClaimant() {
+        return ResponseEntity.ok(ApiResponse.success(claimantService.getListClaimant()));
     }
 }

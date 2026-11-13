@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -34,6 +35,10 @@ public class ClaimantService {
     public Claimant getClaimant(UUID id) {
         return claimantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Claimant not found: " + id));
+    }
+
+    public List<Claimant> getListClaimant() {
+        return claimantRepository.findAll();
     }
 
     public Claimant getClaimantByMemberNumber(String claimantMemberNumber) {

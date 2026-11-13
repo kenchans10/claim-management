@@ -22,6 +22,25 @@
             <column name="updated_at"
                     valueDate="2024-01-15T12:15:00"/>
             <column name="version" valueNumeric="1"/>
+            <column name="policy_number" value="POL-1001"/>
+        </insert>
+
+        <insert tableName="claims">
+            <column name="id"
+                    value="77777777-7777-7777-7777-777777777777"/>
+            <column name="claim_number" value="CLM-QUEUE1001"/>
+            <column name="claimant_id"
+                    value="22222222-2222-2222-2222-222222222222"/>
+            <column name="claim_type" value="PROPERTY"/>
+            <column name="status" value="SUBMITTED"/>
+            <column name="description"
+                    value="Water damage to kitchen from burst pipe"/>
+            <column name="created_at"
+                    valueDate="2024-01-16T09:00:00"/>
+            <column name="updated_at"
+                    valueDate="2024-01-16T09:00:00"/>
+            <column name="version" valueNumeric="0"/>
+            <column name="policy_number" value="POL-1002"/>
         </insert>
 
         <!-- Seed assessments -->

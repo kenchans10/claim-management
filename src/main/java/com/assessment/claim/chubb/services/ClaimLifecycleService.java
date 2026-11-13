@@ -38,7 +38,11 @@ public class ClaimLifecycleService {
         Claim saved = claimRepository.save(claim);
         return new ClaimResponse(
                 saved.getClaimNumber(),
+                claim.getClaimant().getFirstName() + " " + claim.getClaimant().getLastName(),
+                claim.getClaimant().getEmail(),
+                claim.getClaimant().getPhone(),
                 saved.getClaimant().getClaimantMemberNumber(),
+                claim.getPolicyNumber(),
                 saved.getClaimType(),
                 saved.getStatus(),
                 saved.getDescription(),

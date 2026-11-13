@@ -53,6 +53,7 @@ public class ClaimService {
         claim.setDescription(request.description());
         claim.setStatus(ClaimStatus.SUBMITTED);
         claim.setClaimNumber(generateClaimNumber());
+        claim.setPolicyNumber(claimant.getPolicyNumber());
 
         Claim saved = claimRepository.save(claim);
         notificationService.publishClaimReadyForStaff(new ClaimReadyForStaffEvent(
@@ -103,7 +104,11 @@ public class ClaimService {
     private ClaimResponse toResponse(Claim claim) {
         return new ClaimResponse(
                 claim.getClaimNumber(),
+                claim.getClaimant().getFirstName() + " " + claim.getClaimant().getLastName(),
+                claim.getClaimant().getEmail(),
+                claim.getClaimant().getPhone(),
                 claim.getClaimant().getClaimantMemberNumber(),
+                claim.getPolicyNumber(),
                 claim.getClaimType(),
                 claim.getStatus(),
                 claim.getDescription(),

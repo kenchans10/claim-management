@@ -2,6 +2,7 @@ package com.assessment.claim.chubb.entities;
 
 import com.assessment.claim.chubb.common.enums.ClaimStatus;
 import com.assessment.claim.chubb.common.enums.ClaimType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Claim {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "claimant_id", nullable = false)
+    @JsonBackReference
     private Claimant claimant;
 
     @Enumerated(EnumType.STRING)
@@ -48,6 +50,9 @@ public class Claim {
 
     @Version
     private Long version;
+
+    @Column(nullable = false)
+    private String policyNumber;
 
     @PrePersist
     protected void onCreate() {

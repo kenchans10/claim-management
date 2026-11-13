@@ -7,7 +7,11 @@ import java.time.LocalDateTime;
 
 public record ClaimResponse(
         String claimNumber,
+        String fullName,
+        String email,
+        String phone,
         String claimantMemberNumber,
+        String policyNumber,
         ClaimType claimType,
         ClaimStatus status,
         String description,

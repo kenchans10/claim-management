@@ -1,5 +1,6 @@
 package com.assessment.claim.chubb.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +43,7 @@ public class Claimant {
     @Column(nullable = false)
     private String policyNumber;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "claimant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Claim> claims = new ArrayList<>();
 }

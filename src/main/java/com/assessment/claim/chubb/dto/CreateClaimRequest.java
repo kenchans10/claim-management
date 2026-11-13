@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 public record CreateClaimRequest(
         @NotBlank String claimantMemberNumber,
         @NotNull ClaimType claimType,
+        @NotBlank String policyNumber,
         @NotBlank String description
 ) {
 }

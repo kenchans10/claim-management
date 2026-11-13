@@ -16,4 +16,5 @@
     <include file="db/changelog/data/001-seed-claimants-staff.xml"/>
     <include file="db/changelog/data/002-seed-claims-assessments.xml"/>
     <include file="db/changelog/data/003-seed-claim-queue.xml"/>
+
 </databaseChangeLog>

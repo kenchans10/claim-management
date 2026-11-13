@@ -160,7 +160,11 @@ public class AssessmentService {
     private ClaimResponse toClaimResponse(Claim claim) {
         return new ClaimResponse(
                 claim.getClaimNumber(),
+                claim.getClaimant().getFirstName() + " " + claim.getClaimant().getLastName(),
+                claim.getClaimant().getEmail(),
+                claim.getClaimant().getPhone(),
                 claim.getClaimant().getClaimantMemberNumber(),
+                claim.getPolicyNumber(),
                 claim.getClaimType(),
                 claim.getStatus(),
                 claim.getDescription(),

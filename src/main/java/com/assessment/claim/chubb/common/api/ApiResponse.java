@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public record ApiResponse<T>(
         boolean success,
-        T data,
+        T item,
         String message,
         Instant timestamp
 ) {

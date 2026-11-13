@@ -46,6 +46,10 @@
                 <constraints nullable="false"/>
             </column>
 
+            <column name="policy_number" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+
         </createTable>
 
         <addForeignKeyConstraint
